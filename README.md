@@ -3,6 +3,15 @@ tju-eweb
 
 Client for e.tju.edu.cn (eweb) in Python, including support for various modules
 
+## Install
+
+``python-pip install tjueweb``
+
+OR
+
+``pip install tjueweb``
+
+
 ## Supported Modules
 
 * Logging (登录)
