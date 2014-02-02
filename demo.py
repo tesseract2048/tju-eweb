@@ -3,7 +3,7 @@
 """
  @author:   hty0807@gmail.com
 """
-from eweb.client import EWebClient
+from tjueweb.client import EWebClient
 
 cli = EWebClient()
 
