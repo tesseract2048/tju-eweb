@@ -31,7 +31,37 @@ patterns = {
             ("gradingtype", STRIP),
             ("comment", STRIP)
         ]
-    }
+    },
+    "enroll/result": {
+        'regex': """<tr height = "20" bgcolor="#FFFFFF">([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "left"><font class="ContextText2">(?P<courseid>\\d+)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "center"><font class="ContextText2">(?P<lessonid>\\d+)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "left"><font class="ContextText2">(?P<name>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "center"><font class="ContextText2">(?P<coursetype>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "center"><font class="ContextText2">(?P<courseclass>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "left"><font class="ContextText2">(?P<credit>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "left"><font class="ContextText2">(?P<lecturer>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "left"><font class="ContextText2">(?P<unioncode>[^<]*)([^<]+)</font>([^<]+)</td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "left"><font class="ContextText2">(?P<plan>[^<]*)([^<]+)([^<]+)</font>([^<]+)</td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "center"><font class="ContextText2">(?P<schedule>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "center"><font class="ContextText2">(?P<department>[^<]*)</font></td>([^<]+)<td class="(TableRowColor|TableAltRowColor2)" align = "center">([^<]+)<font class="ContextText2">(?P<comment>[^<]*)([^<]+)([^<]+)([^<]+)([^<]+)</font>([^<]+)</td>([^<]+)([^<]+)</tr>""",
+        'fields': [
+            ("courseid", STRIP),
+            ("lessonid", STRIP),
+            ("name", STRIP),
+            ("coursetype", STRIP),
+            ("courseclass", STRIP),
+            ("credit", NUMERIC),
+            ("lecturer", STRIP),
+            ("unioncode", STRIP),
+            ("plan", STRIP),
+            ("schedule", STRIP),
+            ("department", STRIP),
+            ("comment", STRIP)
+        ]
+    },
+    "evaluate/rows": {
+        'regex': """<a href="\\./evaluate\\.do\\?todo=detail&lesson_id=(?P<lessonid>\\d+)&union_id=(?P<unioncode>\\d+)&course_id=(?P<courseid>\\d+)" >[\\r\\n\\t ]+(?P<name>[^&]+)&nbsp;""",
+        'fields': [
+            ("lessonid", STRIP),
+            ("courseid", STRIP),
+            ("unioncode", STRIP),
+            ("name", STRIP)
+        ]
+    },
+    "evaluate/lecturers": {
+        'regex': """<input type="radio" name="(\\d+)_4" value="100">""",
+        'function': STRIP
+    },
 }
 
 def extract(input, name):

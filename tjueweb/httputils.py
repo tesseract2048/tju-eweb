@@ -41,5 +41,5 @@ class WebClient():
         conttype = r.info().get('Content-Type')
         if conttype.find('charset') > -1:
             charset = conttype[conttype.find('charset')+8:]
-            data = data.decode(charset)
-        return data.encode('utf-8')
+            data = data.decode(charset, 'ignore')
+        return data.encode('utf-8', 'ignore')
