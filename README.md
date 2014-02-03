@@ -62,7 +62,9 @@ cli.logoff()
 
 ## Cli
 
-``python eweb_cli.py``
+A command line tool was built based on this library.
+
+Usage: ``python eweb_cli.py``
 
 Menu:
 
