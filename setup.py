@@ -17,6 +17,5 @@ setup(
     license=license,
     author='tess3ract',
     author_email='hty0807@gmail.com',
-    description='A client library for e.tju.edu.cn (tju-eweb)',
-    install_requires=['urllib2', 'urllib'],
+    description='A client library for e.tju.edu.cn (tju-eweb)'
 )
